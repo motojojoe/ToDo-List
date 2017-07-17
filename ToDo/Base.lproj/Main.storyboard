@@ -34,10 +34,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dataProvider" destination="Lvt-HB-5eh" id="uUZ-zG-Ils"/>
                         <outlet property="tableView" destination="ogX-AQ-YWm" id="vHZ-7D-j0e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="Lvt-HB-5eh" customClass="ItemListDataProvider" customModule="ToDo" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="141.59999999999999" y="138.98050974512745"/>
         </scene>
