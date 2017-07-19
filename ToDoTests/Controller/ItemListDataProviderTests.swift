@@ -25,6 +25,7 @@ class ItemListDataProviderTests: XCTestCase {
     
     tableView = controller.tableView
     tableView.dataSource = sut
+    tableView.delegate = sut
   }
   
   override func tearDown() {
@@ -68,9 +69,7 @@ class ItemListDataProviderTests: XCTestCase {
   }
   
   func test_CellForRow_DequeuesCellFromTableView() {
-    let mockTableView = MockTableView()
-    mockTableView.dataSource = sut
-    mockTableView.register(ItemCell.self, forCellReuseIdentifier: "ItemCell")
+    let mockTableView = MockTableView.mockTableView(withDataSource: sut)
     
     sut.itemManager?.add(item: ToDoItem(title: "Foo"))
     mockTableView.reloadData()
@@ -81,9 +80,8 @@ class ItemListDataProviderTests: XCTestCase {
   }
   
   func test_CellForRow_CallsConfigCell() {
-    let mockTableView = MockTableView()
-    mockTableView.dataSource = sut
-    mockTableView.register(MockItemCell.self, forCellReuseIdentifier: "ItemCell")
+    let mockTableView = MockTableView.mockTableView(withDataSource: sut)
+    
     let item = ToDoItem(title: "Foo")
     sut.itemManager?.add(item: item)
     mockTableView.reloadData()
@@ -92,6 +90,55 @@ class ItemListDataProviderTests: XCTestCase {
     
     XCTAssertEqual(cell.catchedItem, item)
   }
+  
+  func test_CellForRow_InSectionTwo_CallsConfigCellWithDoneItem() {
+    let mockTableView = MockTableView.mockTableView(withDataSource: sut)
+    
+    let item = ToDoItem(title: "Foo")
+    sut.itemManager?.add(item: item)
+    
+    let second = ToDoItem(title: "Bar")
+    sut.itemManager?.add(item: second)
+    sut.itemManager?.checkItemAt(index: 1)
+    mockTableView.reloadData()
+    
+    let cell = mockTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! MockItemCell
+    XCTAssertEqual(cell.catchedItem, second)
+  }
+  
+  func test_DeleteButton_InFirstSection_ShowsTitleCheck() {
+    let deleteButtonTitle = tableView.delegate?.tableView?(tableView, titleForDeleteConfirmationButtonForRowAt: IndexPath(row: 0, section: 0))
+    XCTAssertEqual(deleteButtonTitle, "Check")
+  }
+  
+  func test_DeleteButton_InFirstSection_ShowsTitleUnCheck() {
+    let deleteButtonTitle = tableView.delegate?.tableView?(tableView, titleForDeleteConfirmationButtonForRowAt: IndexPath(row: 0, section: 1))
+    XCTAssertEqual(deleteButtonTitle, "Uncheck")
+  }
+  
+  func test_CheckingAnItem_ChecksItInTheItemManager() {
+    sut.itemManager?.add(item: ToDoItem(title: "Foo"))
+    tableView.dataSource?.tableView?(tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: 0))
+    
+    XCTAssertEqual(sut.itemManager?.toDoCount, 0)
+    XCTAssertEqual(sut.itemManager?.doneCount, 1)
+    XCTAssertEqual(tableView.numberOfRows(inSection: 0), 0)
+    XCTAssertEqual(tableView.numberOfRows(inSection: 1), 1)
+  }
+  
+  func test_UncheckingAnItem_UnchecksItInTheItemManager() {
+    sut.itemManager?.add(item: ToDoItem(title: "First"))
+    sut.itemManager?.checkItemAt(index: 0)
+    tableView.reloadData()
+    
+    tableView.dataSource?.tableView?(tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: 1))
+    
+    XCTAssertEqual(sut.itemManager?.toDoCount, 1)
+    XCTAssertEqual(sut.itemManager?.doneCount, 0)
+    XCTAssertEqual(tableView.numberOfRows(inSection: 0), 1)
+    XCTAssertEqual(tableView.numberOfRows(inSection: 1), 0)
+  }
+  
 }
 
 extension ItemListDataProviderTests {
@@ -100,6 +147,14 @@ extension ItemListDataProviderTests {
     override func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
       cellGotDequeued = true
       return super.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+    }
+    
+    class func mockTableView(withDataSource dataSource: UITableViewDataSource) -> MockTableView {
+      let mockTableView = MockTableView(frame: CGRect(x: 0, y: 0, width: 320, height: 480), style: .plain)
+      mockTableView.dataSource = dataSource
+      mockTableView.register(MockItemCell.self, forCellReuseIdentifier: "ItemCell")
+      
+      return mockTableView
     }
   }
   
@@ -110,4 +165,5 @@ extension ItemListDataProviderTests {
       catchedItem = item
     }
   }
+  
 }
