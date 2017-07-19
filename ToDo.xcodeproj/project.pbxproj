@@ -15,6 +15,7 @@
 		6021A2FB1F14DCC00033CA12 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6021A2FA1F14DCC00033CA12 /* ToDoItem.swift */; };
 		603858981F1612A900333630 /* ItemManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603858971F1612A900333630 /* ItemManagerTests.swift */; };
 		6038589A1F16141700333630 /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603858991F16141700333630 /* ItemManager.swift */; };
+		604476BE1F1F41CA0005A028 /* ItemCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604476BD1F1F41CA0005A028 /* ItemCellTests.swift */; };
 		606F6FC61F1DC99900C86ABA /* ItemListDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606F6FC51F1DC99900C86ABA /* ItemListDataProviderTests.swift */; };
 		606F6FC81F1E019500C86ABA /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606F6FC71F1E019500C86ABA /* ItemCell.swift */; };
 		607FC39B1F18BF1900C9B293 /* ItemListViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FC39A1F18BF1900C9B293 /* ItemListViewControllerTest.swift */; };
@@ -47,6 +48,7 @@
 		6021A2FA1F14DCC00033CA12 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		603858971F1612A900333630 /* ItemManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManagerTests.swift; sourceTree = "<group>"; };
 		603858991F16141700333630 /* ItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
+		604476BD1F1F41CA0005A028 /* ItemCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellTests.swift; sourceTree = "<group>"; };
 		606F6FC51F1DC99900C86ABA /* ItemListDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListDataProviderTests.swift; sourceTree = "<group>"; };
 		606F6FC71F1E019500C86ABA /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		607FC39A1F18BF1900C9B293 /* ItemListViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewControllerTest.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			children = (
 				607FC39A1F18BF1900C9B293 /* ItemListViewControllerTest.swift */,
 				606F6FC51F1DC99900C86ABA /* ItemListDataProviderTests.swift */,
+				604476BD1F1F41CA0005A028 /* ItemCellTests.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				604476BE1F1F41CA0005A028 /* ItemCellTests.swift in Sources */,
 				606F6FC61F1DC99900C86ABA /* ItemListDataProviderTests.swift in Sources */,
 				603858981F1612A900333630 /* ItemManagerTests.swift in Sources */,
 				60E224051F160B8D009638AE /* LocationTests.swift in Sources */,
