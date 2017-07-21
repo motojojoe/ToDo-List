@@ -23,6 +23,8 @@
 		60702F911F208D72005F6258 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60702F901F208D72005F6258 /* MapKit.framework */; };
 		607FC39B1F18BF1900C9B293 /* ItemListViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FC39A1F18BF1900C9B293 /* ItemListViewControllerTest.swift */; };
 		607FC39E1F18C06100C9B293 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FC39D1F18C06100C9B293 /* ItemListViewController.swift */; };
+		60825CF91F21B9A400BF91D4 /* InputViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60825CF81F21B9A400BF91D4 /* InputViewControllerTests.swift */; };
+		60825CFB1F21BBC200BF91D4 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60825CFA1F21BBC200BF91D4 /* InputViewController.swift */; };
 		608768CB1F1C76590091E6E5 /* ItemListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608768CA1F1C76590091E6E5 /* ItemListDataProvider.swift */; };
 		60E224031F1601B8009638AE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E224021F1601B8009638AE /* Location.swift */; };
 		60E224051F160B8D009638AE /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E224041F160B8D009638AE /* LocationTests.swift */; };
@@ -59,6 +61,8 @@
 		60702F901F208D72005F6258 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		607FC39A1F18BF1900C9B293 /* ItemListViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewControllerTest.swift; sourceTree = "<group>"; };
 		607FC39D1F18C06100C9B293 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
+		60825CF81F21B9A400BF91D4 /* InputViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewControllerTests.swift; sourceTree = "<group>"; };
+		60825CFA1F21BBC200BF91D4 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		608768CA1F1C76590091E6E5 /* ItemListDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListDataProvider.swift; sourceTree = "<group>"; };
 		60E224021F1601B8009638AE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		60E224041F160B8D009638AE /* LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 				606F6FC51F1DC99900C86ABA /* ItemListDataProviderTests.swift */,
 				604476BD1F1F41CA0005A028 /* ItemCellTests.swift */,
 				60702F8B1F206509005F6258 /* DetailViewControllerTests.swift */,
+				60825CF81F21B9A400BF91D4 /* InputViewControllerTests.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 				608768CA1F1C76590091E6E5 /* ItemListDataProvider.swift */,
 				606F6FC71F1E019500C86ABA /* ItemCell.swift */,
 				60702F8D1F2065D1005F6258 /* DetailViewController.swift */,
+				60825CFA1F21BBC200BF91D4 /* InputViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -281,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60825CFB1F21BBC200BF91D4 /* InputViewController.swift in Sources */,
 				6038589A1F16141700333630 /* ItemManager.swift in Sources */,
 				608768CB1F1C76590091E6E5 /* ItemListDataProvider.swift in Sources */,
 				6005B4101F14C23F00966D70 /* AppDelegate.swift in Sources */,
@@ -299,6 +306,7 @@
 				604476BE1F1F41CA0005A028 /* ItemCellTests.swift in Sources */,
 				606F6FC61F1DC99900C86ABA /* ItemListDataProviderTests.swift in Sources */,
 				603858981F1612A900333630 /* ItemManagerTests.swift in Sources */,
+				60825CF91F21B9A400BF91D4 /* InputViewControllerTests.swift in Sources */,
 				60E224051F160B8D009638AE /* LocationTests.swift in Sources */,
 				60702F8C1F206509005F6258 /* DetailViewControllerTests.swift in Sources */,
 				607FC39B1F18BF1900C9B293 /* ItemListViewControllerTest.swift in Sources */,
